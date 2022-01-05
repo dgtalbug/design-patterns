@@ -23,10 +23,8 @@ const logFormat = winston.format
   .combine(
     winston.format.colorize(),
     winston.format.timestamp(),
-    winston.format.printf(({ timestamp, level, message }) => {
-      return `\n [${timestamp}] ${level}: ${message}` ;
-    })
-  )
+    winston.format.printf(({ timestamp, level, message }) => `\n [${timestamp}] ${level}: ${message}` )
+  );
   
 export const Logger = winston.createLogger({
   levels:logLevelConfig.levels,
